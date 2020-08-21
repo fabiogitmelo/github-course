@@ -9,6 +9,4 @@ Gostou do curso? Quer mais? Ajude com uma doação, até um café é válido.
 # ANA JULIA, ARTHUR, CRIANÇAS MARAVILHOSAS
 
 
-Outros cursos em : [william justen cursos] http://williamjusten.teachable.com
-
-Curso de Git e Github concluído em 20-06-20-------------
+# ATUALIZADO EM 21-08-2020...
