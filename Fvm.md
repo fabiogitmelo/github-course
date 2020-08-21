@@ -11,4 +11,4 @@ Gostou do curso? Quer mais? Ajude com uma doação, até um café é válido.
 
 Outros cursos em : [william justen cursos] http://williamjusten.teachable.com
 
-Curso de Git e Github concluído em 20-06-2020
+Curso de Git e Github concluído em 20-06-20-------------
