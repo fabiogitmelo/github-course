@@ -70,3 +70,4 @@ p = Producer({​​​​​​​​'bootstrap.servers': 'localhost:9092'}​�
 for i in range(10000):
    p.produce('py-producer', f'bye{​​​​​​​​i}​​​​​​​​')
    time.sleep(1)
+FABIO VILELA DE MELO 19/11/2020
