@@ -1,0 +1,72 @@
+[Ontem 19:24] Otacilio Pedro Santos
+    
+Preparando o conteiner
+1 - subir os serviço
+
+
+cd ~/beca/kafka_docker/
+docker-compose -f docker-compose.kafka.yml up -d
+
+
+2 - abrir o terminal do conteiner (o id do conteiner pode ser obtido em $ docker ps)
+
+
+docker exec -it "id-do-conteiner" /bin/bash
+
+
+3 - instalar o pip para conseguir instalar o pacote kafka-python
+
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+
+
+4 - instalar o modulo kafka-python
+
+
+pip install confluent-kafka
+
+
+5 - criar o topico
+
+
+kafka-topics --bootstrap-server localhost:9092 --create --topic py-producer --replication-factor 1 --partitions 3
+
+
+Producer e Consumer
+1 - criar 3 consumers do grupo 1
+
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic py-producer --group grupo1
+
+
+2 - criar 1 consumer do grupo 2
+
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic py-producer --group grupo2
+
+
+3 - chamar dois terminais para producer com python
+terminal 1
+
+
+python
+from confluent_kafka import Producer
+import time
+p = Producer({​​​​​​​​'bootstrap.servers': 'localhost:9092'}​​​​​​​​)
+for i in range(10000):
+   p.produce('py-producer', f'hello{​​​​​​​​i}​​​​​​​​')
+   p.produce('py-producer', f'world{​​​​​​​​i}​​​​​​​​')
+   time.sleep(1)
+
+
+terminal 2
+
+
+python
+from confluent_kafka import Producer
+import time
+p = Producer({​​​​​​​​'bootstrap.servers': 'localhost:9092'}​​​​​​​​)
+for i in range(10000):
+   p.produce('py-producer', f'bye{​​​​​​​​i}​​​​​​​​')
+   time.sleep(1)
